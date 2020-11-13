@@ -179,6 +179,8 @@
 	</footer>
 	<!-- Footer -->
 
+
+	{% block javascript %}
 	<!-- Bootstrap core JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
 		integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -210,6 +212,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/startbootstrap-stylish-portfolio@5.0.8/js/stylish-portfolio.min.js"
 		integrity="sha256-LbnkA+5lVYW5YEE06A8/X1Xkfsd0zK0HMKHAuHH//Ls=" crossorigin="anonymous"></script>
 
-    <script src="https://res.cloudinary.com/christwin/raw/upload/v1604973498/nova_static/nav_y1leox.js"></script>
+    <script src="{% static 'js/nav.js' %} "></script>
+	{% endblock javascript %}
+
   </body>
 </html>
