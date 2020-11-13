@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    User email: {{ user.email }}<br>
+    Date joined: {{ user.date_joined }}<br>
+    Gender: {{ account.gender }}<br>
+    Account credits: {{ account.credits }}<br>
+    <a href="{% url 'top-up:top_up' %}" class="btn btn-danger btn-rounded">Top up account</a><br>
+    <a href="{% url 'logout' %}" class="btn btn-danger btn-rounded">Logout</a>
+
+{% endblock content %}

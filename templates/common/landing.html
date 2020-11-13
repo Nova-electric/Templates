@@ -1,0 +1,141 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+    <section class="top-cover" style="background-image:url('https://raw.githubusercontent.com/Nova-electric/Media/master/solar.png');">
+    </section>
+
+    <section class="home-intro">
+      <div class="home-intro-img">
+        <img src="https://raw.githubusercontent.com/Nova-electric/Media/master/builders1.jpg" />
+      </div>
+      <div class="home-intro-content">
+        <h3>
+          Constant Electricity Is Totally Possible.
+        </h3>
+        <p>
+			The days of annoying power outages are quickly coming to an end.
+			New developments in energy technologies (like solar photovoltaic cells),
+			makes it possible for <b style="font-weight:bold;">Nova-electric</b> to produce <i>very cheap, reliable and
+			clean electricity</i>. Register now and get connected.
+			<a class="btn btn-success btn-md js-scroll-trigger" href="#about">Find out More</a>
+       </p>
+     </div>
+    </section>
+
+	<!-- Services -->
+	<section class="content-section bg-secondary text-white text-center" id="services">
+		<div class="container">
+			<div class="content-section-heading">
+				<h2 class="mb-5">What We Offer</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+					<span class="service-icon rounded-circle mx-auto mb-3">
+			<i class="icon-speedometer"></i>
+		  </span>
+					<h4>
+						<strong>Metering</strong>
+					</h4>
+					<p class="text-faded mb-0">No estimated bills, pay for what you use</p>
+				</div>
+				<div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+					<span class="service-icon rounded-circle mx-auto mb-3">
+			<i class="icon-earphones-alt"></i>
+		  </span>
+					<h4>
+						<strong>Care</strong>
+					</h4>
+					<p class="text-faded mb-0">Get help anytime, anywhere</p>
+				</div>
+				<div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+					<span class="service-icon rounded-circle mx-auto mb-3">
+			<i class="icon-screen-smartphone"></i>
+		  </span>
+					<h4>
+						<strong>Apps</strong>
+					</h4>
+					<p class="text-faded mb-0">Our friendly mobile apps help you maximize your value</p>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<span class="service-icon rounded-circle mx-auto mb-3">
+			<i class="icon-emotsmile"></i>
+		  </span>
+					<h4>
+						<strong>Discounts</strong>
+					</h4>
+					<p class="text-faded mb-0">Get lots of discounts for saving the planet</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    <section class="products">
+      <h1>Our Partners</h1>
+      <div class="product left">
+        <!-------Add left class if image is gonna be left inclined-->
+
+        <div class="product-image">
+          <img src="https://www.logo.wine/a/logo/Tesla%2C_Inc./Tesla%2C_Inc.-Logo.wine.svg" />
+        </div>
+
+        <!----Place Image holder first before the description whilst adding the left class-->
+        <div class="product-desc">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et eveniet,
+          autem iure quis modi aperiam ipsa assumenda cumque rem optio corporis
+          earum voluptatibus repellat molestias ab maxime eaque laborum!
+          Eveniet?
+   		  <a class="btn btn-success js-scroll-trigger" href="#about">Learn More</a>
+     </div>
+      </div>
+      <div class="divider"></div>
+      <!----Use this to seperate the products-->
+
+      <div class="product right">
+        <!-------Add right class if image is gonna be right inclined-->
+
+        <!----Place Image holder first before the description whilst adding the left class-->
+        <div class="product-desc">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et eveniet,
+          autem iure quis modi aperiam ipsa assumenda cumque rem optio corporis
+          earum voluptatibus repellat molestias ab maxime eaque laborum!
+          Eveniet?
+		  <a class="btn btn-success js-scroll-trigger" href="#about">Learn More</a>
+        </div>
+
+        <div class="product-image">
+          <img src="https://nigeria.zolaelectric.com/wp-content/uploads/sites/18/2018/11/zola-logo.svg" width="200" height="70"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="reasons">
+      <h2>Why Us?</h2>
+      <div class="reason-display">
+        <div class="reason">
+          <div class="reason-icon"><i class="fa fa-bulb"></i></div>
+          <div class="reason-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, nulla.</div>
+        </div>
+        <div class="reason">
+            <div class="reason-icon"><i class="fa fa-bulb"></i></div>
+            <div class="reason-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, nulla.</div>
+          </div>
+          <div class="reason">
+            <div class="reason-icon"><i class="fa fa-bulb"></i></div>
+            <div class="reason-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, nulla.</div>
+          </div>
+      </div>
+    </section> -->
+
+	<!-- Callout -->
+	<section class="callout" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://raw.githubusercontent.com/Nova-electric/Media/master/building.jpg');">
+		<div class="container text-center">
+			<h2 class="mx-auto mb-5">
+				<span style="color:#fff"><em>Get connected now!!</em></span>
+			</h2>
+			<a class="btn btn-success btn-xl" href="{% url 'sign-in:email' %}">Sign in!</a>
+		</div>
+	</section>
+
+
+{% endblock content %}
