@@ -1,3 +1,6 @@
+{# simple base.html #}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +12,10 @@
 	<link rel="shortcut icon" href="https://raw.githubusercontent.com/Nova-electric/Media/master/logo_theme.png"
 		type="image/x-icon">
 
-	<!-- Bootstrap Core CSS -->
+
+	  {% block stylesheets %}
+
+	  <!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"
 		integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg=="
 		crossorigin="anonymous" />
@@ -41,11 +47,14 @@
 	crossorigin="anonymous" />
 
 		<!-- Custom CSS -->
-    <link rel="stylesheet" href="https://res.cloudinary.com/christwin/raw/upload/v1605046138/nova_static/main_nm85n4.css" />
-    <link rel="stylesheet" href="https://res.cloudinary.com/christwin/raw/upload/v1604973420/nova_static/bars_jtgdwa.css" />
-<!--
+    <link rel="stylesheet" href="{% static 'css/base.css' %} " />
+    <link rel="stylesheet" href="{% static 'css/bars.css' %} " />
+
+	  {% endblock stylesheets %}
+
+	  <!--
     <link rel="stylesheet" href="/home/christwin/Downloads/Nova Electricity/css/main.css" />
- -->
+ 		-->
 
   </head>
   <body>
