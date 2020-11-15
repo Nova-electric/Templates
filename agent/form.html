@@ -1,36 +1,32 @@
-{% extends 'agent/dashboard.html' %}
+{% extends 'common/dashboard.html' %}
 
-{% block title %} Agent Top-up {% endblock title %}
+{% block title %} More {% endblock title %}
 
-{% block pagename %} Agent Top-up {% endblock pagename %}
+{% block pagename %} Become A Top-up Agent {% endblock pagename %}
 
 {% block page_brief %}
-    Use form for agent top-up
+    Fill form to create agent profile
 {% endblock page_brief %}
+
+{% block more %}
+    <!-- Nav Item - More -->
+    <li class="nav-item active">
+    <a class="nav-link" href="operations.html">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>More</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+{% endblock more %}
 
 
 
 {% block form_input %}
-    {{ form.code }}
-    {{ form.mobile }}
-    {{ form.amount }}
+    {{ form.email }}
 {% endblock form_input %}
 
 {% block form_button %}
     <button class="btn btn-primary" type="submit">
       <i class="fas fa-check fa-sm"></i>
 {% endblock form_button %}
-
-{% block content %}
-    <br><br>
-    <h4>Pending Transactions</h4>
-    <table>
-    {% for transaction in pending %}
-        Amount: {{ transaction.amount }} ||
-        Customer: {{ transaction.consumer.user }} ||
-        Time: {{ transaction.time }}
-        <a class="btn btn-danger btn-sm" href="{{ transaction.confirmation_url }}">Confirm</a>
-        <br>
-        {% endfor %}
-    </table>
-{% endblock content %}
