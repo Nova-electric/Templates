@@ -2,10 +2,10 @@
 
 {% block title %} More {% endblock title %}
 
-{% block pagename %} Become A Top-up Agent {% endblock pagename %}
+{% block pagename %} More {% endblock pagename %}
 
 {% block page_brief %}
-    Fill form to create agent profile
+    Want a little more?
 {% endblock page_brief %}
 
 {% block more %}
@@ -21,12 +21,8 @@
 {% endblock more %}
 
 
-
-{% block form_input %}
-    {{ form.email }}
-{% endblock form_input %}
-
-{% block form_button %}
-    <button class="btn btn-primary" type="submit">
-      <i class="fas fa-check fa-sm"></i>
-{% endblock form_button %}
+{% block content %}
+    <a class="btn btn-primary btn-sm" href="{% url 'agent:set_up' %}">Become a Top-up Agent</a><br>
+    <br>
+    <a class="btn btn-primary btn-sm" href="{% url 'retailer:set_up' %}">Become an Electricity retailer</a><br>
+{% endblock content %}
