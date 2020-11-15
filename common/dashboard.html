@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  {% block title %}<title>Dashboard</title>{% endblock title %}
+  <title>{% block title %}Dashboard{% endblock title %}</title>
 
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/Nova-electric/Media/master/logo_theme.png"
 		type="image/x-icon">
@@ -36,7 +36,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-bolt"></i>
         </div>
@@ -46,9 +46,12 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
+
+      {% block account %}
+
       <!-- Nav Item - Account -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Account</span></a>
       </li>
@@ -56,49 +59,55 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Nav Item - Profile -->
+      {% endblock account %}
+
+
+      {% if user.account.is_agent %}
+
+
+      {% block agent %}
+
+      <!-- Nav Item - Agent -->
       <li class="nav-item ">
-        <a class="nav-link" href="profile.html">
+        <a class="nav-link" href="{% url 'agent:dashboard' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Profile</span></a>
+          <span>Agent</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
+      {% endblock agent %}
 
-      {% if user.is_retailer %}
+      {% endif %}
 
-      <!-- Nav Item - Account -->
-      <li class="nav-item ">
-        <a class="nav-link" href="account.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Account</span></a>
-      </li>
+      {% if user.account.is_retailer %}
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
+      {% block sites %}
      <!-- Nav Item - Sites -->
       <li class="nav-item ">
-        <a class="nav-link" href="sites.html">
+        <a class="nav-link" href="{% url 'retailer:sites' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Sites</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
+      {% endblock sites %}
 
+      {% block meters %}
       <!-- Nav Item - Meters -->
       <li class="nav-item ">
-        <a class="nav-link" href="meters.html">
+        <a class="nav-link" href="{% url 'retailer:meters' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Meters</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
+      {% endblock meters %}
 
+      {% block operations %}
       <!-- Nav Item - Operations -->
       <li class="nav-item ">
         <a class="nav-link" href="operations.html">
@@ -108,19 +117,20 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider">
+      {% endblock operations %}
 
       {% endif %}
 
-
-      <!-- Nav Item - Blank -->
+      <!-- Nav Item - More -->
       <li class="nav-item ">
-        <a class="nav-link" href="blank.html">
+        <a class="nav-link" href="operations.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Blank</span></a>
+          <span>More</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -212,16 +222,29 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+            <div>
+            {% block page_brief %}
+              Brief information about this page
+             <a class="btn btn-sm btn-primary" href="{{ site.get_absolute_query_url }}">Edit User Profile</a>
+           {% endblock page_brief %}
+            </div><br>
+
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                role="form" action="" method="post">
+            {% csrf_token %}
             <div class="input-group">
+            {% block form_input %}
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+             {% endblock form_input %}
+             <div class="input-group-append">
+               {% block form_button %}
+                <button class="btn btn-primary" type="submit">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
+               {% endblock form_button %}
               </div>
             </div>
           </form>
@@ -291,13 +314,6 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{% static 'js/admin.min.js' %}"></script>
-
-  <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
 
   <script>
     function getYear(){

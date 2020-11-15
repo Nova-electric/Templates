@@ -1,2 +1,23 @@
 {% extends 'common/dashboard.html' %}
 
+{% block title %} Retailer Dashboard {% endblock title %}
+
+{% block pagename %} Retailer Dashboard {% endblock pagename %}
+
+{% block page_brief %}
+    Brief information about this page
+    <a class="btn btn-sm btn-primary" href="{{ site.get_absolute_query_url }}">Edit Retailer Profile</a>
+{% endblock page_brief %}
+
+{% block retailer %}
+      <!-- Nav Item - Retailer -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'retailer:dashboard' %}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Retailer</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+{% endblock retailer %}
