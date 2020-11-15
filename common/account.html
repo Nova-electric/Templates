@@ -26,35 +26,45 @@
   <!-- Content Row -->
   <div class="row">
 
-    <!-- Usage (Monthly) Card -->
+    <!-- Account balance card -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Usage (Monthly)</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">1,800kwh</div>
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Account balance</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ account.credits }}</div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-lightbulb fa-2x text-gray-300"></i>
+              <i class="fas fa-file-invoice-dollar fa-2x text-gray-300"></i>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Usage (Annnual) Card -->
+    <!-- Active -->
     <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-success shadow h-100 py-2">
+      <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Usage (Annual)</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">14,000kwh</div>
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Account Status</div>
+              {% if account.is_active %}
+              <div class="h5 mb-0 font-weight-bold text-gray-800">Active</div>
+              {% else %}
+              <div class="h5 mb-0 font-weight-bold text-gray-800">Deactivated</div>
+              {% endif %}
             </div>
-            <div class="col-auto">
-              <i class="fas fa-charging-station fa-2x text-gray-300"></i>
-            </div>
+             {% if account.is_active %}
+              <div class="col-auto">
+                <i class="fas fa-toggle-on fa-2x text-gray-300"></i>
+              </div>
+              {% else %}
+              <div class="col-auto">
+                <i class="fas fa-toggle-off fa-2x text-gray-300"></i>
+              </div>
+              {% endif %}
           </div>
         </div>
       </div>
@@ -86,6 +96,8 @@
       </div>
     </div>
   </div>
+    <a href="{% url 'top-up:top_up' %}" class="btn btn-danger btn-sm">Top up account</a>
+  <br><br>
 
   <!-- Content Row -->
   <div class="row">
@@ -95,7 +107,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold " style="color: white;">Usage Overview</h6>
+          <h6 class="m-0 font-weight-bold " style="color: white;">My Meters</h6>
           <div class="dropdown no-arrow">
             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -123,7 +135,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold" style="color: white;">Usage Pie chart</h6>
+          <h6 class="m-0 font-weight-bold" style="color: white;">Recent Transactions</h6>
           <div class="dropdown no-arrow">
             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
