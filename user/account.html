@@ -1,24 +1,7 @@
-{% extends 'common/dashboard.html' %}
+{% extends 'user/dashboard.html' %}
 
 {% block title %}Dashboard - Account Overview{% endblock title %}
 {% block pagename %} Account Overview {% endblock pagename %}
-
-
-{% block account %}
-
-    <!-- Nav Item - Account -->
-    <li class="nav-item active">
-      <a class="nav-link" href="index.html">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Account</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-{% endblock account %}
-
-
 
 
 {% block content %}
@@ -96,7 +79,7 @@
       </div>
     </div>
   </div>
-    <a href="{% url 'top-up:top_up' %}" class="btn btn-danger btn-sm">Top up account</a>
+    <a href="{% url 'topup:create' %}" class="btn btn-danger btn-sm">Top up account</a>
   <br><br>
 
   <!-- Content Row -->
@@ -123,9 +106,15 @@
         </div>
         <!-- Card Body -->
         <div class="card-body">
-          <div class="chart-area">
-            <canvas id="myAreaChart"></canvas>
-          </div>
+          <table>
+          {% for meter in meters %}
+            <h3>Meters</h3>
+              ID: {{ meter.uuid }} <br>
+              Active: {{ meter.is_active }}<br>
+              Address: {{ meter.site.address }}<br>
+              Retailer email: {{ meter.retailer.email }}<br>
+              {% endfor %}
+          </table>
         </div>
       </div>
     </div>
@@ -151,20 +140,14 @@
         </div>
         <!-- Card Body -->
         <div class="card-body">
-          <div class="chart-pie pt-4 pb-2">
-            <canvas id="myPieChart"></canvas>
-          </div>
-          <div class="mt-4 text-center small">
-            <span class="mr-2">
-              <i class="fas fa-circle text-primary"></i> January
-            </span>
-            <span class="mr-2">
-              <i class="fas fa-circle text-success"></i> February
-            </span>
-            <span class="mr-2">
-              <i class="fas fa-circle text-info"></i> March
-            </span>
-          </div>
+          <table>
+          {% for transaction in pending %}
+              Amount: {{ transaction.amount }} ||
+              Time: {{ transaction.time }}
+              <a class="btn btn-danger btn-sm" href="{{ transaction.confirmation_url }}">Confirm</a>
+              <br>
+              {% endfor %}
+          </table>
         </div>
       </div>
     </div>

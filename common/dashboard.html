@@ -57,7 +57,7 @@
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider my-0">
 
       {% endblock account %}
 
@@ -75,13 +75,25 @@
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider my-0">
 
       {% endblock agent %}
 
       {% endif %}
 
       {% if user.account.is_retailer %}
+
+      {% block operations %}
+      <!-- Nav Item - Operations -->
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'retailer:dashboard' %}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Operations</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+      {% endblock operations %}
 
       {% block sites %}
      <!-- Nav Item - Sites -->
@@ -92,7 +104,7 @@
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider my-0">
       {% endblock sites %}
 
       {% block meters %}
@@ -104,20 +116,8 @@
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider my-0">
       {% endblock meters %}
-
-      {% block operations %}
-      <!-- Nav Item - Operations -->
-      <li class="nav-item ">
-        <a class="nav-link" href="operations.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Operations</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-      {% endblock operations %}
 
       {% endif %}
 
@@ -130,12 +130,8 @@
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider my-0">
       {% endblock more %}
-
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">

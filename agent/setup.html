@@ -1,4 +1,4 @@
-{% extends 'common/dashboard.html' %}
+{% extends 'common/more.html' %}
 
 {% block title %} More {% endblock title %}
 
@@ -7,19 +7,6 @@
 {% block page_brief %}
     Fill form to create agent profile
 {% endblock page_brief %}
-
-{% block more %}
-    <!-- Nav Item - More -->
-    <li class="nav-item active">
-    <a class="nav-link" href="operations.html">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>More</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-{% endblock more %}
-
 
 
 {% block form_input %}
@@ -31,3 +18,7 @@
       <i class="fas fa-check fa-sm"></i>
     </button>
 {% endblock form_button %}
+
+
+{% block content %}
+{% endblock content %}

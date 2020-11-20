@@ -5,17 +5,45 @@
 {% block pagename %} Retailer Meters {% endblock pagename %}
 
 
+{% block page_brief %}
+    Use form for search your installed meters
+    <a class="btn btn-sm btn-primary" href="{{ site.get_absolute_query_url }}">Edit Retailer Profile</a>
+{% endblock page_brief %}
+
+
+{% block form_input %}
+    {{ form.field }}
+    {{ form.query }}
+{% endblock form_input %}
+
+{% block form_button %}
+    <button class="btn btn-primary" type="submit">
+      <i class="fas fa-check fa-sm"></i>
+    </button>
+{% endblock form_button %}
+
 {% block meters %}
     <!-- Nav Item - Meters -->
     <li class="nav-item active">
-      <a class="nav-link" href="meters.html">
+      <a class="nav-link" href="{% url 'retailer:meters' %}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Meters</span></a>
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider my-0">
 {% endblock meters %}
 
+
 {% block content %}
+    <br><br>
+    <h4>Search results</h4>
+  {% for meter in meters %}
+      UUID: {{ meter.uuid }} ||
+      Status: {{ meter.is_active }} ||
+      User: {{ meter.user }} ||
+      Site: {{ meter.site }} ||
+      <a class="btn btn-sm btn-primary" href="{{ meter.get_absolute_query_url }}">url</a>
+      <br>
+  {% endfor %}
 {% endblock content %}
