@@ -1,10 +1,6 @@
 {% extends 'signin/form.html' %}
 
 {% block content %}
-	<h1>Login Token</h1>
-	<p>
-		A login token was sent to you. Simply enter token here to complete sign-in
-	</p>
-	<a class="ghost" id="signUp" href="{% url 'signin:email' %}">Retry</a>
+	<span>A login token was sent to you</span>
 {% endblock content %}
 
