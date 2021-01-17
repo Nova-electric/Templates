@@ -81,12 +81,10 @@
 
       {% endif %}
 
-      {% if user.account.is_retailer %}
-
       {% block operations %}
       <!-- Nav Item - Operations -->
       <li class="nav-item ">
-        <a class="nav-link" href="{% url 'retailer:dashboard' %}">
+        <a class="nav-link" href="{% url 'home' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Operations</span></a>
       </li>
@@ -98,7 +96,7 @@
       {% block sites %}
      <!-- Nav Item - Sites -->
       <li class="nav-item ">
-        <a class="nav-link" href="{% url 'retailer:sites' %}">
+        <a class="nav-link" href="{% url 'home' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Sites</span></a>
       </li>
@@ -110,7 +108,7 @@
       {% block meters %}
       <!-- Nav Item - Meters -->
       <li class="nav-item ">
-        <a class="nav-link" href="{% url 'retailer:meters' %}">
+        <a class="nav-link" href="{% url 'home' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Meters</span></a>
       </li>
@@ -118,8 +116,6 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
       {% endblock meters %}
-
-      {% endif %}
 
       {% block more %}
       <!-- Nav Item - More -->
